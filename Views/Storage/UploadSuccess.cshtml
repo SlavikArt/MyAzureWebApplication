@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Upload Success";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Upload Successful!</h3>
+                </div>
+                <div class="card-body text-center">
+                    <p>Your image has been successfully uploaded to Azure Blob Storage.</p>
+                    <p>The image URL is:</p>
+                    <div class="alert alert-info">
+                        @ViewBag.ImageUrl
+                    </div>
+                    <div class="mt-3">
+                        <a href="@Url.Action("UploadImage")" class="btn btn-primary">Upload Another Image</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

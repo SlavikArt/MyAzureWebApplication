@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "Translation";
+}
+
+<div class="container mt-4">
+    <h2>Text Translation</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="sourceText">Text to Translate:</label>
+                <textarea id="sourceText" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="form-group mt-3">
+                <label for="targetLanguage">Target Language:</label>
+                <select id="targetLanguage" class="form-control">
+                    <option value="">Select a language...</option>
+                    @foreach (var language in ViewBag.Languages)
+                    {
+                        <option value="@language">@language</option>
+                    }
+                </select>
+            </div>
+            <button id="translateBtn" class="btn btn-primary mt-3">Translate</button>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="translatedText">Translation:</label>
+                <textarea id="translatedText" class="form-control" rows="5" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#translateBtn').click(function () {
+                var text = $('#sourceText').val();
+                var targetLanguage = $('#targetLanguage').val();
+
+                if (!text) {
+                    alert('Please enter text to translate');
+                    return;
+                }
+
+                if (!targetLanguage) {
+                    alert('Please select a target language');
+                    return;
+                }
+
+                var $btn = $(this);
+                $btn.prop('disabled', true);
+                $btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Translating...');
+
+                $('#translatedText').val('');
+
+                $.ajax({
+                    url: '@Url.Action("Translate")',
+                    type: 'POST',
+                    data: { text: text, targetLanguage: targetLanguage },
+                    success: function (result) {
+                        console.log('Translation response:', result);
+                        if (result && result.translatedText) {
+                            console.log('Setting translation to:', result.translatedText);
+                            $('#translatedText').val(result.translatedText);
+                        } else {
+                            console.error('Invalid translation response:', result);
+                            alert('No translation received');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Translation error:', {xhr: xhr, status: status, error: error});
+                        alert('Error occurred during translation: ' + error);
+                    },
+                    complete: function () {
+                        $btn.prop('disabled', false);
+                        $btn.text('Translate');
+                    }
+                });
+            });
+        });
+    </script>
+} 

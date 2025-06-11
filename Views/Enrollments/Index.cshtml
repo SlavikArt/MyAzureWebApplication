@@ -1,0 +1,71 @@
+@model IEnumerable<WebApplication1.Models.Enrollment>
+
+@{
+    ViewData["Title"] = "Enrollments";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Student Enrollments</h1>
+    
+    <div class="text-center mb-4">
+        <a asp-action="Create" class="btn btn-primary">Add New Enrollment</a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var enrollment in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body">
+                        <h5 class="card-title">@enrollment.Student.FullName</h5>
+                        <p class="card-text course-tag">@enrollment.Course.Title</p>
+                        <p class="card-text grade-tag">
+                            @(enrollment.Grade.HasValue ? $"Grade: {enrollment.Grade}" : "Not Graded")
+                        </p>
+                        <p class="card-text date-tag">Enrolled: @enrollment.EnrollmentDate.ToShortDateString()</p>
+                        <div class="text-center mt-3">
+                            <a asp-action="Edit" asp-route-id="@enrollment.Id" class="btn btn-primary btn-sm">Edit Grade</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .hover-card {
+        transition: transform 0.2s ease-in-out;
+    }
+    
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    }
+    
+    .course-tag {
+        font-size: 1rem;
+        color: #6c757d;
+    }
+    
+    .grade-tag {
+        font-size: 1.1rem;
+        color: #28a745;
+        font-weight: 500;
+    }
+    
+    .date-tag {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+    
+    .card {
+        border-radius: 10px;
+        border: none;
+    }
+    
+    .card-title {
+        color: #2c3e50;
+        font-weight: 600;
+    }
+</style> 

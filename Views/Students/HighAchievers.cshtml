@@ -1,0 +1,38 @@
+@model IEnumerable<WebApplication1.Models.Student>
+
+@{
+    ViewData["Title"] = "High Achievers";
+}
+
+<h1>High Achievers (Grade > 90)</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FullName)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>High Scoring Courses</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => student.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => student.Email)</td>
+                <td>
+                    <ul>
+                        @foreach (var enrollment in student.Enrollments.Where(e => e.Grade > 90))
+                        {
+                            <li>@enrollment.Course.Title - Grade: @enrollment.Grade</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div> 

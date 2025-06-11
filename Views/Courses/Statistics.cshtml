@@ -1,0 +1,31 @@
+@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Course Statistics";
+}
+
+<h1>Course Statistics</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Number of Students</th>
+            <th>Average Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Course.Title</td>
+                <td>@item.StudentCount</td>
+                <td>@(item.AverageGrade > 0 ? item.AverageGrade.ToString("F2") : "No grades yet")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div> 

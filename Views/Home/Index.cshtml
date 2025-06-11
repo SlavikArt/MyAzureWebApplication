@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="display-4 mb-4 fw-bold" style="color: #1e3c72;">Welcome to My Azure Web Application</h1>
+            <p class="lead mb-5" style="color: #2a5298;">Your comprehensive platform for managing students, courses, and products</p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm hover-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-user-graduate fa-3x mb-3" style="color: #1e3c72;"></i>
+                    <h3 class="card-title">Student Management</h3>
+                    <p class="card-text">Manage student records, track enrollments, and monitor academic progress.</p>
+                    <a asp-controller="Students" asp-action="Index" class="btn btn-primary mt-3">View Students</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm hover-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-book fa-3x mb-3" style="color: #1e3c72;"></i>
+                    <h3 class="card-title">Course Catalog</h3>
+                    <p class="card-text">Browse and manage courses, view enrollment statistics, and track course performance.</p>
+                    <a asp-controller="Courses" asp-action="Index" class="btn btn-primary mt-3">View Courses</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm hover-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-box fa-3x mb-3" style="color: #1e3c72;"></i>
+                    <h3 class="card-title">Product Management</h3>
+                    <p class="card-text">Explore our product catalog, manage inventory, and track product details.</p>
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-primary mt-3">View Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="text-center mb-4" style="color: #1e3c72;">Quick Stats</h2>
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <i class="fas fa-users fa-2x mb-2" style="color: #2a5298;"></i>
+                            <h4>Students</h4>
+                            <p class="lead">Track student progress</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fas fa-graduation-cap fa-2x mb-2" style="color: #2a5298;"></i>
+                            <h4>Courses</h4>
+                            <p class="lead">Manage course offerings</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fas fa-shopping-cart fa-2x mb-2" style="color: #2a5298;"></i>
+                            <h4>Products</h4>
+                            <p class="lead">Browse our catalog</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        border: none;
+        padding: 0.5rem 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+    }
+
+    .lead {
+        color: #666;
+    }
+</style>

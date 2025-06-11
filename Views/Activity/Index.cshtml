@@ -1,0 +1,40 @@
+@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Activity Logs";
+}
+
+<div class="container mt-4">
+    <h2>Activity Logs</h2>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>User ID</th>
+                    <th>Activity Type</th>
+                    <th>Description</th>
+                    <th>Additional Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var activity in Model)
+                {
+                    <tr>
+                        <td>@activity.Timestamp.ToString("g")</td>
+                        <td>@activity.UserId</td>
+                        <td>@activity.ActivityType</td>
+                        <td>@activity.Description</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(activity.AdditionalData))
+                            {
+                                <pre class="mb-0"><code>@activity.AdditionalData</code></pre>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div> 

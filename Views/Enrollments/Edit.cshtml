@@ -1,0 +1,59 @@
+@model WebApplication1.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Edit Grade";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Edit Grade</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form asp-action="Edit" method="post" id="editForm">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="StudentId" />
+                        <input type="hidden" asp-for="CourseId" />
+                        <input type="hidden" asp-for="EnrollmentDate" />
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Student</label>
+                            <input value="@(Model.Student?.FullName ?? "Unknown Student")" class="form-control" readonly />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Course</label>
+                            <input value="@(Model.Course?.Title ?? "Unknown Course")" class="form-control" readonly />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Grade" class="control-label">Grade</label>
+                            <input asp-for="Grade" class="form-control" type="number" min="0" max="100" step="1" />
+                            <span asp-validation-for="Grade" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $("#editForm").on("submit", function (e) {
+                console.log("Form submitted");
+                var grade = $("#Grade").val();
+                console.log("Grade value:", grade);
+            });
+        });
+    </script>
+} 

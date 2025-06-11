@@ -1,0 +1,34 @@
+@model List<WebApplication1.Models.TranslationHistory>
+
+@{
+    ViewData["Title"] = "Translation History";
+}
+
+<div class="container mt-4">
+    <h2>Translation History</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Source Text</th>
+                    <th>Translated Text</th>
+                    <th>From</th>
+                    <th>To</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TranslationDate.ToString("g")</td>
+                        <td>@item.SourceText</td>
+                        <td>@item.TranslatedText</td>
+                        <td>@item.SourceLanguage</td>
+                        <td>@item.TargetLanguage</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div> 
