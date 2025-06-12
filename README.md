@@ -318,3 +318,40 @@ A Workspace is your cloud-based environment for managing resources and developin
 - Flexible deployment options
 - Comprehensive monitoring and management
 
+## 📊 Azure ML Sentiment Analysis
+
+Dataset: [UserReviews.csv](./datasets/UserReviews.csv)
+
+### Dataset & Pipeline Setup
+![Upload Dataset](./screenshots/40_Upload_Dataset.png)
+*Initial Dataset Upload Interface*
+
+![Upload Dataset Settings](./screenshots/41_Upload_Dataset_Settings.png)
+*Dataset Upload Configuration*
+
+![My UserReviews Dataset](./screenshots/42_My_UserReviews_Dataset.png)
+*User Reviews Dataset Overview*
+
+### Pipeline Configuration
+![Pipeline 01](./screenshots/43_01_Pipeline.png)
+*Initial Pipeline Setup*
+
+![Pipeline 02](./screenshots/44_02_Pipeline.png)
+*Pipeline Configuration Details*
+
+![My Compute Cluster](./screenshots/45_My_Compute_Cluster.png)
+*Compute Cluster Configuration*
+
+### Pipeline Execution
+![Pipeline Running](./screenshots/46_Pipeline_Running.png)
+*Pipeline Execution Start*
+
+![Pipeline Running Progress](./screenshots/47_Pipeline_Running_Progress.png)
+*Pipeline Execution Progress*
+
+![Pipeline Completed](./screenshots/48_Pipeline_Completed.png)
+*Pipeline Execution Completion*
+
+![Pipeline Evaluation Results](./screenshots/49_Pipeline_Evaluation_Results.png)
+*Sentiment Analysis Evaluation Results*
+
