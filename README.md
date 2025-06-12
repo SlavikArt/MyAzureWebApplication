@@ -227,3 +227,94 @@ dotnet run
 
 ![Translation History](./screenshots/26_Translation_History.png)
 *Translation History Log*
+
+### Database Export & Import
+![Export Database Bacpac](./screenshots/27_Export_Database_Bacpac.png)
+*Database Export Configuration*
+
+![Export Settings](./screenshots/28_Export_Settings.png)
+*Export Settings Configuration*
+
+![Export Progress](./screenshots/29_Export_Progress.png)
+*Database Export Progress*
+
+![Import Database](./screenshots/30_Import_Database.png)
+*Database Import Configuration*
+
+![Import Progress](./screenshots/31_Import_Progress.png)
+*Database Import Progress*
+
+![Import Results](./screenshots/32_Import_Results.png)
+*Import Results Summary*
+
+![Azure Import Success](./screenshots/33_Azure_Import_Success.png)
+*Successful Database Import*
+
+![SSMS Imported Database](./screenshots/34_SSMS_Imported_Database.png)
+*Imported Database in SSMS*
+
+![Azure Imported Database Tables And Data](./screenshots/35_Azure_Imported_Database_Tables_And_Data.png)
+*Imported Database Tables and Data in Azure*
+
+## 📊 Migration Report
+
+### Database Information
+- **Local Database:** `test_db`
+- **Remote Database:** `test_db2`
+- **Migration Method:** Direct via SQL Server Management Studio (SSMS)
+
+### Migration Status
+✅ **Successfully Migrated:**
+- All database tables (Students, Products, etc.)
+- Complete record preservation
+- Data integrity maintained
+
+### Configuration Notes
+- Firewall rules properly configured
+- Valid .bacpac file used
+- No errors encountered during migration
+
+### Verification
+All database objects and data were successfully transferred to the remote environment with no data loss or corruption.
+
+### Azure Machine Learning
+![Azure Machine Learning Creating New Workspace](./screenshots/36_Azure_Machine_Learning_Creating_New_Workspace.png)
+*Creating New Machine Learning Workspace*
+
+![Azure Machine Learning Workspace Deployment](./screenshots/37_Azure_Machine_Learning_Workspace_Deployment.png)
+*Machine Learning Workspace Deployment*
+
+![Azure Portal Machine Learning Workspace](./screenshots/38_Azure_Portal_Machine_Learning_Workspace.png)
+*Machine Learning Workspace in Azure Portal*
+
+![Azure AI Studio Machine Learning Workspace](./screenshots/39_Azure_AI_Studio_Machine_Learning_Workspace.png)
+*Machine Learning Workspace in Azure AI Studio*
+
+## 🤖 Azure AI | Machine Learning Studio Workspace
+
+A Workspace is your cloud-based environment for managing resources and developing machine learning models. It supports both no-code and code-first approaches, automation, and team collaboration.
+
+### 🎯 Key Capabilities
+
+- **Centralized Resource Management**
+  - Data, models, and compute resources
+  - Automated ML pipelines and MLOps
+  - Team collaboration tools
+
+- **Model Support**
+  - Microsoft models
+  - OpenAI integration
+  - Hugging Face models
+
+- **Development Tools**
+  - Responsible AI features
+  - Model interpretability
+  - Scalable compute (CPU/GPU)
+  - Apache Spark support
+
+### 💡 Benefits
+- Streamlined ML development workflow
+- Enhanced collaboration capabilities
+- Flexible deployment options
+- Comprehensive monitoring and management
+
